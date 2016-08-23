@@ -9,19 +9,22 @@ puts "(c) deposit money into account"
 
 action = gets.chomp
 
-if action == a
+if action == "a"
   user.balance
-elsif action == b
-  puts "You chose withdraw cash"
+elsif action == "b"
+  puts "You chose to withdraw cash"
+  user.withdrawal
+elsif action == "c"
+  user.deposit
 else
-  exit
+  puts "You did not chose a or b"
 end
 
 
 
 
-
-puts user.id
-puts user.balance
-
-puts user.balance
+#
+# puts user.id
+# puts user.balance
+#
+# puts user.balance

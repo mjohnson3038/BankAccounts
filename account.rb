@@ -10,20 +10,28 @@ module Bank
     end
 
     def balance
-      puts "Your current balance is #{@balance}."
+      puts "Your current balance is $#{@balance}."
     end
 
-    def withdrawal(amount)
-      if @balance < amount
-        puts "Sorry, you do not have sufficient funds foryour withdrawal."
-      else
-        @balance = @balance - amount
-        puts "Please remember to collect your receipt andmoney before leaving. Your remaining balance is $#{@balance}."
+    def withdrawal
+      puts "Your current balance is $#{@balance}. How much would you like to withdraw?"
+      withdrawal_amount = gets.chomp.to_f
+
+      while @balance < withdrawal_amount
+        puts "Sorry, you do not have sufficient funds for your withdrawal. Please select an amount less than the amount in the account."
+        withdrawal_amount = gets.chomp.to_f
       end
+
+      @balance = @balance - withdrawal_amount
+      puts "Please remember to collect your receipt and money before leaving. Your remaining balance is $#{@balance}."
+
     end
 
-    def deposit(amount)
+    def deposit
+      puts "Please enter the amount of money you are depositing."
+      amount = gets.chomp.to_f
       @balance = @balance + amount
+      puts "Your new balance is $#{@balance}."
     end
 
   end
