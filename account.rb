@@ -17,13 +17,14 @@ module Bank
       puts "Your current balance is $#{@balance}."
     end
 
-    def withdraw(amount, message = "Sorry, you do not have sufficient funds for your withdrawal.")
+    def withdraw(amount)
+      minimum_balance = 0
 
-      if @balance > amount
-        @balance = @balance - amount
+      if @balance > amount + minimum_balance
+        @balance = @balance - amount #- transaction_fee
         puts "Please remember to collect your receipt and money before leaving. Your remaining balance is $#{@balance}."
       else
-        raise Exception.new(message)
+        raise Exception.new("Sorry, you do not have sufficient funds for your withdrawal.")
       end
     end
 
