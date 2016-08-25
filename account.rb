@@ -37,6 +37,17 @@ module Bank
       CSV.read('/Users/madeleinejohnson/Ada/project-forks/Bank/BankAccounts/support/accounts.csv','r'). each do |line|
         customers << self.new(line[0], line[1], line[2])
       end
+      return customers
     end
+
+    def self.find(id)
+      # to_p = nil
+      Bank::Account.all.each do |line|
+        if id == line.id.to_i
+          return line
+        end
+      end
+    end
+
   end
 end
