@@ -15,18 +15,31 @@ require_relative 'savings_account'
 # # EXAMPLE OF self.find method!
 # puts "id: 1213 #{Bank::Account.find(1213)}"
 
-puts "WAVE 3"
+puts "WAVE 3" # You may need to comment out the information for wave 2 to get this section to work. 
 puts "________________"
- s = Bank::SavingsAccount.new(13774, 1000, "01/02/1903")
- c = Bank::CheckingAccount.new(13774, 10000, "01/02/1903")
+ s = Bank::SavingsAccount.new(13774, 100000, "01/02/1903")
+ c = Bank::CheckingAccount.new(13774, 1000, "01/02/1903")
 
+puts "SAVINGS ACCOUNT"
 puts s.welcome
-puts s.withdraw (500)
-puts s.withdraw_using_check(10)
-puts s.withdraw_using_check(10)
-puts s.withdraw_using_check(10)
-puts s.withdraw_using_check(473)
-puts reset_checks
+puts s.withdraw(500)
+puts s.deposit(10)
+puts s.deposit(10)
+puts s.deposit(10)
+puts s.withdraw(473)
+
+
+puts "CHECKING ACCOUNT"
+puts c.withdraw(5)
+puts c.deposit(15)
+puts c.deposit(15)
+puts c.deposit(15)
+puts c.withdraw_using_check(10)
+puts c.withdraw_using_check(10)
+puts c.withdraw_using_check(10)
+puts c.withdraw_using_check(5)
+puts c.reset_checks
+puts c.withdraw_using_check(10)
 
 
 

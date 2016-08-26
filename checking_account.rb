@@ -21,8 +21,6 @@ module Bank
 
     end
 
-
-
     def balance (amount)
       super(amount)
     end
@@ -43,10 +41,10 @@ module Bank
       if @balance > amount + self.class::TCHECKFEE + self.class::CHECKMIN
         @balance = @balance - amount - self.class::TCHECKFEE
         puts "Thank you for doing business at MJ's Bank. Your remaining balance is $#{@balance}."
+        @count_checks += 1
       else
         raise Exception.new("Sorry, you do not have sufficient funds for your withdrawal.")
       end
-      @count_checks += 1
 
       return @balance
     end
