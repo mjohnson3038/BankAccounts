@@ -1,3 +1,7 @@
+# File for Wave 1
+# File 1/2 for Wave 2
+# File 1/3 for Wave 3 baseline.
+
 require 'csv'
 
 module Bank

@@ -1,23 +1,40 @@
+# file 2/2 for Wave 2
+
 require_relative 'account'
+require_relative 'checking_account'
+require_relative 'savings_account'
 
-# PRINTED self.all method!
-Bank::Account.all.each do |line|
-  puts line
-end
+# puts "WAVE 2"
+# puts "________________"
 
-# EXAMPLE OF self.find method!
-puts "id: 1213 #{Bank::Account.find(1213)}"
-
-
-
-
-# Playing with the information to allow for deposit, withdrawal, and balance.
-
-# puts "Please enter your id before proceeding"
-# user_id = gets.chomp
+# # PRINTED self.all method!
+# Bank::Account.all.each do |line|
+#   puts line
+# end
 #
-# Bank::Account.all.each_with_index do |line, i|
-#   if line[0] == user_id
+# # EXAMPLE OF self.find method!
+# puts "id: 1213 #{Bank::Account.find(1213)}"
+
+puts "WAVE 3"
+puts "________________"
+ s = Bank::SavingsAccount.new(13774, 1000, "01/02/1903")
+ c = Bank::CheckingAccount.new(13774, 10000, "01/02/1903")
+
+puts s.welcome
+puts s.withdraw (500)
+puts s.withdraw_using_check(10)
+puts s.withdraw_using_check(10)
+puts s.withdraw_using_check(10)
+puts s.withdraw_using_check(473)
+puts reset_checks
+
+
+
+
+
+
+# Playing with the information to allow for deposit, withdrawal, and balance. I know this would be better off in the account.rb file but everytime I put it there as a method, it recieves many many errors.
+
 #     puts "What can I help you with today? Please select an option below by selecting the letter of the desired action."
 #     puts "(a) provide balance"
 #     puts "(b) withdraw cash"

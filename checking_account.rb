@@ -1,3 +1,5 @@
+# File 2/3 for Wave 3 baseline.
+
 require_relative  'account.rb'
 
 module Bank
@@ -17,6 +19,12 @@ module Bank
       super(id, balance, open_date)
       @count_checks = 0
 
+    end
+
+
+
+    def balance (amount)
+      super(amount)
     end
 
     def withdraw(amount)
