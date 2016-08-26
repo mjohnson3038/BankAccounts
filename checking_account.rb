@@ -8,6 +8,8 @@ module Bank
 
     MIN = 0
     TFEE = 1
+    # Minimum balance and transaction fee of checking account.
+    CHECKMIN = -10
     TCHECKFEE = 2
 
     def initialize (id, balance, open_date)
@@ -19,7 +21,7 @@ module Bank
 
     def withdraw(amount)
       super
-      # Recall, there is a $1 transaction fee
+      # Recall, there is a $1 transaction fee set as a constant TFEE above.
     end
 
     def withdraw_using_check(amount)
@@ -30,7 +32,7 @@ module Bank
         amount = amount - self.class::TCHECKFEE
       end
 
-      if @balance > amount + self.class::TCHECKFEE
+      if @balance > amount + self.class::TCHECKFEE + self.class::CHECKMIN
         @balance = @balance - amount - self.class::TCHECKFEE
         puts "Thank you for doing business at MJ's Bank. Your remaining balance is $#{@balance}."
       else
@@ -43,6 +45,10 @@ module Bank
 
     def reset_checks
       @count_checks = 0
+    end
+
+    def deposit (amount)
+      super(amount)
     end
 
   #end of class
