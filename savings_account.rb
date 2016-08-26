@@ -4,7 +4,10 @@ module Bank
 
   class SavingsAccount < Account
     attr_accessor :balance
-    attr_reader :id, :open_date, :minimum_balance
+    attr_reader :id, :open_date 
+
+    MIN = 10
+    TFEE = 2
 
     def initialize (id, balance, open_date)
 
@@ -15,18 +18,15 @@ module Bank
         else
           raise Exception.new("Sorry, in order to open or maintain a savings account, you must maintain a balance of $10.")
         end
-      @minimum_balance = 10
     end
 
     def withdraw(amount)
-      puts "YOU ARE IN SAVINGS"
-      minimum_balance = 95
-      super(amount)
-      puts @balance
-      puts minimum_balance
-
+      super
     end
 
+    def add_interest(rate)
+      return @balance * rate/100
+    end
 
   #end of class
   end

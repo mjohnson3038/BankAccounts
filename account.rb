@@ -6,6 +6,9 @@ module Bank
     attr_accessor :balance
     attr_reader :id, :open_date
 
+    MIN = 0
+    TFEE = 0
+
     def initialize(id, balance, open_date)
       #initially, I was going to provide the user with a new id, but I wanted them to be able to enter there id and then tell them how much money they had and provide actions for them.
       @id = id
@@ -18,10 +21,9 @@ module Bank
     end
 
     def withdraw(amount)
-      minimum_balance = 0
 
-      if @balance > amount + minimum_balance
-        @balance = @balance - amount #- transaction_fee
+      if @balance > amount + self.class::MIN
+        @balance = @balance - amount - self.class::TFEE
         puts "Please remember to collect your receipt and money before leaving. Your remaining balance is $#{@balance}."
       else
         raise Exception.new("Sorry, you do not have sufficient funds for your withdrawal.")
